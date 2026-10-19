@@ -6,7 +6,7 @@ HD현대(에이치디현대㈜, KOSPI 267250)의 OpenDART 재무제표를 수집
 
 ## 대시보드
 
-**[🔗 대시보드 바로가기](https://hsc-class02.github.io/CH_HD/)** · [GitHub Actions 실행 내역](https://github.com/HSC-Class02/CH_HD/actions) · [OpenDART](https://opendart.fss.or.kr/)
+**[🔗 대시보드 바로가기](https://hsc-class02.github.io/CH_HD/)** · [API 키 설정 안내](API_KEY_SETUP.md) · [GitHub Actions 실행 내역](https://github.com/HSC-Class02/CH_HD/actions) · [OpenDART](https://opendart.fss.or.kr/)
 
 ## API 인증키 등록 및 최초 실행
 
