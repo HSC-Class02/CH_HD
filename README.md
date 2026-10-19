@@ -1,18 +1,3 @@
-
-DART_API_KEY=여기에_OpenDART_40자리_인증키
-COMPANY_NAME=현대그룹
-START_YEAR=2020
-REPORT_LIMIT=100
-
-.env
-.venv/
-__pycache__/
-*.pyc
-.DS_Store
-
-This project template is provided for educational/prototyping use.
-Review DART/OpenDART terms and GitHub terms before production deployment.
-
 # DART Financial Agent → GitHub Dashboard
 
 DART(OpenDART)에서 특정 기업의 사업보고서를 자동 수집하고, 주요 재무수치와 재무비율을 계산한 뒤 GitHub Pages 대시보드로 공개하는 템플릿입니다.
@@ -146,7 +131,3 @@ Repository Settings → Pages에서:
 ## 9. 데이터 저장 주의
 
 사업보고서 원본을 GitHub에 계속 쌓으면 저장소 용량이 빠르게 증가할 수 있습니다. 학교 프로젝트/프로토타입에서는 적합하지만, 장기 운영에서는 원본 문서를 별도 저장소나 Object Storage에 보관하고 GitHub에는 분석 데이터와 링크만 저장하는 방식을 고려하세요.
-
-requests>=2.32,<3
-pandas>=2.2,<3
-python-dotenv>=1.0,<2

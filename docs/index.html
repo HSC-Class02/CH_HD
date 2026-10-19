@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DART Financial Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f5f6f8;color:#1f2937}
+    header{background:#111827;color:white;padding:28px 6vw}
+    main{max-width:1200px;margin:30px auto;padding:0 20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .card{background:white;border-radius:16px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+    .value{font-size:28px;font-weight:700;margin-top:8px}
+    .muted{color:#6b7280;font-size:13px}
+    .chart{height:360px;margin-top:18px}
+    table{width:100%;border-collapse:collapse;background:white;border-radius:12px;overflow:hidden}
+    th,td{padding:11px;border-bottom:1px solid #eee;text-align:right}
+    th:first-child,td:first-child{text-align:left}
+    .section{margin:28px 0}
+  </style>
+</head>
+<body>
+<header>
+  <div class="muted" style="color:#cbd5e1">OpenDART × GitHub Actions</div>
+  <h1 id="company">DART Financial Dashboard</h1>
+  <div id="updated"></div>
+</header>
+<main>
+  <div class="section">
+    <div class="grid" id="cards"></div>
+  </div>
+
+  <div class="section card">
+    <h2>주요 재무수치 추이</h2>
+    <div class="chart"><canvas id="financeChart"></canvas></div>
+  </div>
+
+  <div class="section card">
+    <h2>재무비율 추이</h2>
+    <div class="chart"><canvas id="ratioChart"></canvas></div>
+  </div>
+
+  <div class="section">
+    <h2>연도별 데이터</h2>
+    <div id="table"></div>
+  </div>
+</main>
+
+<script>
+const moneyKeys = [
+  ["revenue","매출액"],["operating_profit","영업이익"],["net_income","당기순이익"],
+  ["assets","자산총계"],["liabilities","부채총계"],["equity","자본총계"]
+];
+const ratioKeys = [
+  ["operating_margin","영업이익률"],["net_margin","순이익률"],
+  ["roa","ROA"],["roe","ROE"],["current_ratio","유동비율"],
+  ["debt_ratio","부채비율"],["equity_ratio","자기자본비율"],["debt_to_equity","부채/자본"],
+  ["asset_turnover","총자산회전율"]
+];
+
+function fmt(v){
+  if(v === null || v === undefined || Number.isNaN(Number(v))) return "-";
+  return new Intl.NumberFormat("ko-KR",{maximumFractionDigits:1}).format(Number(v));
+}
+function pct(v){ return v==null ? "-" : fmt(v)+"%"; }
+
+async function load(){
+  const data = await fetch("data/metrics.json?"+Date.now()).then(r=>r.json());
+  document.getElementById("company").textContent = data.company_name + " 재무 대시보드";
+  document.getElementById("updated").textContent = "업데이트: " + new Date(data.generated_at).toLocaleString("ko-KR");
+
+  const latest = data.financials[data.financials.length-1];
+  document.getElementById("cards").innerHTML = moneyKeys.map(([k,n]) =>
+    `<div class="card"><div class="muted">${n}</div><div class="value">${fmt(latest[k])}</div></div>`
+  ).join("");
+
+  const labels = data.years;
+  new Chart(document.getElementById("financeChart"), {
+    type:"line",
+    data:{labels,datasets:moneyKeys.slice(0,3).map(([k,n])=>({
+      label:n,data:data.financials.map(x=>x[k]),tension:.25
+    }))},
+    options:{responsive:true,maintainAspectRatio:false}
+  });
+
+  new Chart(document.getElementById("ratioChart"), {
+    type:"line",
+    data:{labels,datasets:ratioKeys.slice(0,7).map(([k,n])=>({
+      label:n,data:data.financials.map(x=>x[k]),tension:.25
+    }))},
+    options:{responsive:true,maintainAspectRatio:false}
+  });
+
+  let html="<table><thead><tr><th>연도</th>"+moneyKeys.map(x=>`<th>${x[1]}</th>`).join("")+
+           ratioKeys.map(x=>`<th>${x[1]}</th>`).join("")+"</tr></thead><tbody>";
+  for(const r of data.financials){
+    html += `<tr><td>${r.year}</td>`+
+      moneyKeys.map(([k])=>`<td>${fmt(r[k])}</td>`).join("")+
+      ratioKeys.map(([k])=>`<td>${pct(r[k])}</td>`).join("")+"</tr>";
+  }
+  html+="</tbody></table>";
+  document.getElementById("table").innerHTML=html;
+}
+load().catch(e=>{
+  document.getElementById("company").textContent="데이터를 불러오지 못했습니다.";
+  console.error(e);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+This project template is provided for educational/prototyping use.
+Review DART/OpenDART terms and GitHub terms before production deployment.
