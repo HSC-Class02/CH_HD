@@ -12,6 +12,9 @@ on:
       - '.github/workflows/update.yml'
 permissions:
   contents: read
+concurrency:
+  group: hd-hyundai-pages
+  cancel-in-progress: true
 jobs:
   update-data:
     name: Collect DART data and calculate ratios
@@ -20,9 +23,9 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
           cache: pip
@@ -63,11 +66,11 @@ jobs:
       url: \${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout dashboard
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: docs
       - name: Deploy GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
