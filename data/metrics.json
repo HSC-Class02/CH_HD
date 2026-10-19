@@ -1,8 +1,85 @@
 {
-  "generated_at": null,
-  "company_name": "DART API 연결 전",
-  "corp_code": null,
-  "years": [],
-  "financials": [],
-  "reports": []
+  "company": {
+    "name": "에이치디현대(주)",
+    "english_name": "HD HYUNDAI CO., LTD.",
+    "stock_code": "267250",
+    "corp_code": null,
+    "market": "KOSPI",
+    "currency": "KRW"
+  },
+  "updated_at": null,
+  "data_start_year": 2015,
+  "units": {
+    "amount": "KRW",
+    "table_amount": "억원",
+    "ratios": "%"
+  },
+  "annual": [],
+  "half_year": [],
+  "quarterly": [],
+  "peers": [
+    {
+      "name": "SK스퀘어",
+      "ticker": "402340",
+      "dart_name": "에스케이스퀘어 주식회사",
+      "rationale": "상장 지주회사·투자 포트폴리오 관리",
+      "caveat": "디지털·투자자산 중심이라 사업 구성 차이 유의",
+      "url": "https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=402340"
+    },
+    {
+      "name": "SK㈜",
+      "ticker": "034730",
+      "dart_name": "SK(주)",
+      "rationale": "대기업 지주회사·자회사 포트폴리오 보유",
+      "caveat": "비상장 자회사 가치 및 지분법 영향에 유의",
+      "url": "https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=034730"
+    },
+    {
+      "name": "㈜두산",
+      "ticker": "000150",
+      "dart_name": "(주)두산",
+      "rationale": "산업·기계 사업과 투자회사 성격 병존",
+      "caveat": "직접 사업 비중 차이 유의",
+      "url": "https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=000150"
+    },
+    {
+      "name": "㈜LS",
+      "ticker": "006260",
+      "dart_name": "(주)LS",
+      "rationale": "산업재 중심 지주회사",
+      "caveat": "전력·전선·소재 계열 비중이 높음",
+      "url": "https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=006260"
+    },
+    {
+      "name": "GS㈜",
+      "ticker": "078930",
+      "dart_name": "GS(주)",
+      "rationale": "에너지·유통 등 다각화 지주회사",
+      "caveat": "업종 포트폴리오 차이 유의",
+      "url": "https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=078930"
+    },
+    {
+      "name": "㈜한화",
+      "ticker": "000880",
+      "dart_name": "(주)한화",
+      "rationale": "방산·에너지·소재 등 복합 사업구조",
+      "caveat": "직접 영업사업 비중 차이 유의",
+      "url": "https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=000880"
+    },
+    {
+      "name": "효성",
+      "ticker": "004800",
+      "dart_name": "효성",
+      "rationale": "산업·소재 중심 복합 기업집단",
+      "caveat": "분할 및 계열 구조 변화 시 비교 시점 주의",
+      "url": "https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=004800"
+    }
+  ],
+  "reports": [],
+  "warnings": [],
+  "methodology": {
+    "financial_scope": "CFS preferred; OFS used only when CFS returns no data for the filing.",
+    "interim_returns": "ROA/ROE and asset turnover are not annualized for interim periods.",
+    "q4": "Q4 is derived from audited annual flow values less standalone Q1-Q3 only when all required values exist."
+  }
 }
