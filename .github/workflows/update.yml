@@ -1,0 +1,59 @@
+name: HD Hyundai DART Update & Deploy
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 1 * *' # 09:00 KST on the first day of every month
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'docs/index.html'
+      - 'requirements.txt'
+      - '.github/workflows/update.yml'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Download DART reports and update metrics
+        env:
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+          SAVE_REPORT_ARCHIVES: 'true'
+          MAX_REPORT_ARCHIVE_MB: '8'
+        run: python src/update_agent.py
+      - name: Commit refreshed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs/data reports
+          if ! git diff --cached --quiet; then
+            git commit -m "Update HD Hyundai DART financial data"
+            git push
+          else
+            echo "No generated data changes."
+          fi
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
