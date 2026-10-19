@@ -36,21 +36,38 @@ def api_json(endpoint,params,key):
     messages={"010":"invalid API key","011":"API key unavailable","020":"request limit exceeded","021":"query range exceeded","100":"missing required parameter","101":"invalid required parameter"}
     raise DartError(f"OpenDART {endpoint}: {status} {messages.get(status,data.get('message','unknown error'))}")
 def resolve_corp_code(key):
+    """Resolve DART's 8-digit corp_code from the KRX stock code, with actionable API errors."""
     try:
-        r=requests.get(f"{API}/corpCode.xml",params={"crtfc_key":key},timeout=120);r.raise_for_status()
-        with zipfile.ZipFile(io.BytesIO(r.content)) as z:
-            name=next((n for n in z.namelist() if n.lower().endswith("corpcode.xml")),z.namelist()[0])
+        response=requests.get(f"{API}/corpCode.xml",params={"crtfc_key":key},timeout=120)
+        response.raise_for_status()
+        content=response.content
+        if not zipfile.is_zipfile(io.BytesIO(content)):
+            detail=""
+            try:
+                payload=response.json()
+                detail=f" OpenDART status={payload.get('status')}; message={payload.get('message')}"
+            except Exception:
+                excerpt=response.text[:220].replace("\n"," ").replace("\r"," ")
+                detail=f" Response excerpt: {excerpt}"
+            raise DartError("OpenDART corpCode.xml did not return the expected ZIP. Check DART_API_KEY validity/permissions and API availability."+detail)
+        with zipfile.ZipFile(io.BytesIO(content)) as archive:
+            member=next((n for n in archive.namelist() if n.lower().endswith("corpcode.xml")),archive.namelist()[0])
             import xml.etree.ElementTree as ET
-            root=ET.fromstring(z.read(name))
-    except Exception as e: raise DartError(f"Could not download/parse OpenDART corporate-code file: {e}") from e
+            root=ET.fromstring(archive.read(member))
+    except DartError:
+        raise
+    except Exception as e:
+        raise DartError(f"Could not download/parse OpenDART corporate-code file: {e}") from e
     matches=[]
     for item in root.findall(".//list"):
         stock=(item.findtext("stock_code") or "").strip()
         name=(item.findtext("corp_name") or "").strip()
         if stock==config.STOCK_CODE and ("현대" in name or "HYUNDAI" in name.upper()):
-            matches.append((name,(item.findtext("corp_code") or "").strip()))
-    code=next((c for n,c in matches if c),None)
-    if not code: raise DartError(f"Unable to resolve OpenDART corp_code for stock code {config.STOCK_CODE}. Check listed entity/name.")
+            code=(item.findtext("corp_code") or "").strip()
+            if code: matches.append((name,code))
+    code=next((c for name,c in matches),None)
+    if not code:
+        raise DartError(f"Unable to resolve OpenDART corp_code for stock code {config.STOCK_CODE}. Check the listed company name/code.")
     return code
 def parse_amount(v):
     if v is None:return None
