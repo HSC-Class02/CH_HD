@@ -35,6 +35,23 @@ jobs:
         run: python -m py_compile src/config.py src/update_agent.py
       - name: Run self-tests
         run: python src/update_agent.py --self-test
+      - name: Validate dashboard HTML, JSON, and JavaScript
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          html = Path("docs/index.html").read_text(encoding="utf-8")
+          assert 'id="statementTable"' in html and 'id="peerTable"' in html
+          scripts = html.split("<script>", 1)
+          assert len(scripts) == 2 and "</script>" in scripts[1], "Dashboard inline script was not found."
+          Path("/tmp/ch-hd-dashboard.js").write_text(scripts[1].split("</script>", 1)[0], encoding="utf-8")
+          payload = json.loads(Path("docs/data/metrics.json").read_text(encoding="utf-8"))
+          for section in ("annual", "half_year", "quarterly", "peers"):
+              assert section in payload, f"Missing dashboard JSON section: {section}"
+          assert len(payload["peers"]) >= 5, "Peer table is missing its reference firms."
+          print("Dashboard HTML/JSON checks PASS; peer firms:", len(payload["peers"]))
+          PY
+          node --check /tmp/ch-hd-dashboard.js
       - name: Collect DART financials and reports
         env:
           DART_API_KEY: \${{ secrets.DART_API_KEY }}
