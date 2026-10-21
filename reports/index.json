@@ -1,7 +1,304 @@
 {
-  "updated_at": null,
+  "updated_at": "2026-10-22T00:02:19.113351+09:00",
   "company": "에이치디현대(주)",
   "stock_code": "267250",
-  "corp_code": null,
-  "reports": []
+  "corp_code": "01205709",
+  "reports": [
+    {
+      "year": 2017,
+      "label": "Annual",
+      "rcept_no": "20180710000563",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20180710000563",
+      "archive": "reports/2017/Annual_20180710000563.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2017,
+      "label": "Half-year",
+      "rcept_no": "20170829000359",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20170829000359",
+      "archive": "reports/2017/Half-year_20170829000359.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2017,
+      "label": "Quarterly",
+      "rcept_no": "20171129001165",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20171129001165",
+      "archive": "reports/2017/Quarterly_20171129001165.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2018,
+      "label": "Annual",
+      "rcept_no": "20190401004497",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20190401004497",
+      "archive": "reports/2018/Annual_20190401004497.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2018,
+      "label": "Half-year",
+      "rcept_no": "20180814002878",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20180814002878",
+      "archive": "reports/2018/Half-year_20180814002878.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2018,
+      "label": "Quarterly",
+      "rcept_no": "20180710000577",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20180710000577",
+      "archive": "reports/2018/Quarterly_20180710000577.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2018,
+      "label": "Quarterly",
+      "rcept_no": "20181114002751",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20181114002751",
+      "archive": "reports/2018/Quarterly_20181114002751.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2019,
+      "label": "Annual",
+      "rcept_no": "20200330004739",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20200330004739",
+      "archive": "reports/2019/Annual_20200330004739.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2019,
+      "label": "Half-year",
+      "rcept_no": "20190814002880",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20190814002880",
+      "archive": "reports/2019/Half-year_20190814002880.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2019,
+      "label": "Quarterly",
+      "rcept_no": "20190515002707",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20190515002707",
+      "archive": "reports/2019/Quarterly_20190515002707.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2019,
+      "label": "Quarterly",
+      "rcept_no": "20191115000368",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20191115000368",
+      "archive": "reports/2019/Quarterly_20191115000368.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2020,
+      "label": "Annual",
+      "rcept_no": "20210317001190",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20210317001190",
+      "archive": "reports/2020/Annual_20210317001190.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2020,
+      "label": "Half-year",
+      "rcept_no": "20200814002786",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20200814002786",
+      "archive": "reports/2020/Half-year_20200814002786.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2020,
+      "label": "Quarterly",
+      "rcept_no": "20200515002590",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20200515002590",
+      "archive": "reports/2020/Quarterly_20200515002590.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2020,
+      "label": "Quarterly",
+      "rcept_no": "20201116001958",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20201116001958",
+      "archive": "reports/2020/Quarterly_20201116001958.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2021,
+      "label": "Annual",
+      "rcept_no": "20220323001006",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20220323001006",
+      "archive": "reports/2021/Annual_20220323001006.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2021,
+      "label": "Half-year",
+      "rcept_no": "20210817002263",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20210817002263",
+      "archive": "reports/2021/Half-year_20210817002263.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2021,
+      "label": "Quarterly",
+      "rcept_no": "20210517001988",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20210517001988",
+      "archive": "reports/2021/Quarterly_20210517001988.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2021,
+      "label": "Quarterly",
+      "rcept_no": "20211115002320",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20211115002320",
+      "archive": "reports/2021/Quarterly_20211115002320.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2022,
+      "label": "Annual",
+      "rcept_no": "20230320001015",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20230320001015",
+      "archive": "reports/2022/Annual_20230320001015.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2022,
+      "label": "Half-year",
+      "rcept_no": "20220816002362",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20220816002362",
+      "archive": "reports/2022/Half-year_20220816002362.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2022,
+      "label": "Quarterly",
+      "rcept_no": "20220516002370",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20220516002370",
+      "archive": "reports/2022/Quarterly_20220516002370.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2022,
+      "label": "Quarterly",
+      "rcept_no": "20221114002782",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20221114002782",
+      "archive": "reports/2022/Quarterly_20221114002782.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2023,
+      "label": "Annual",
+      "rcept_no": "20240321001432",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240321001432",
+      "archive": "reports/2023/Annual_20240321001432.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2023,
+      "label": "Half-year",
+      "rcept_no": "20230814002985",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20230814002985",
+      "archive": "reports/2023/Half-year_20230814002985.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2023,
+      "label": "Quarterly",
+      "rcept_no": "20230515002586",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20230515002586",
+      "archive": "reports/2023/Quarterly_20230515002586.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2023,
+      "label": "Quarterly",
+      "rcept_no": "20231114002694",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20231114002694",
+      "archive": "reports/2023/Quarterly_20231114002694.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2024,
+      "label": "Annual",
+      "rcept_no": "20250319001012",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250319001012",
+      "archive": "reports/2024/Annual_20250319001012.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2024,
+      "label": "Half-year",
+      "rcept_no": "20240814003728",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240814003728",
+      "archive": "reports/2024/Half-year_20240814003728.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2024,
+      "label": "Quarterly",
+      "rcept_no": "20240528000455",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240528000455",
+      "archive": "reports/2024/Quarterly_20240528000455.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2024,
+      "label": "Quarterly",
+      "rcept_no": "20241114001891",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241114001891",
+      "archive": "reports/2024/Quarterly_20241114001891.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2025,
+      "label": "Annual",
+      "rcept_no": "20260320000872",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260320000872",
+      "archive": "reports/2025/Annual_20260320000872.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2025,
+      "label": "Half-year",
+      "rcept_no": "20250814003383",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250814003383",
+      "archive": "reports/2025/Half-year_20250814003383.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2025,
+      "label": "Quarterly",
+      "rcept_no": "20250515002785",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250515002785",
+      "archive": "reports/2025/Quarterly_20250515002785.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2025,
+      "label": "Quarterly",
+      "rcept_no": "20251114002262",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251114002262",
+      "archive": "reports/2025/Quarterly_20251114002262.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2026,
+      "label": "Half-year",
+      "rcept_no": "20260814003420",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003420",
+      "archive": "reports/2026/Half-year_20260814003420.zip",
+      "archive_status": "saved"
+    },
+    {
+      "year": 2026,
+      "label": "Quarterly",
+      "rcept_no": "20260515002071",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515002071",
+      "archive": "reports/2026/Quarterly_20260515002071.zip",
+      "archive_status": "saved"
+    }
+  ]
 }
