@@ -54,7 +54,7 @@ jobs:
           node --check /tmp/ch-hd-dashboard.js
       - name: Collect DART financials and reports
         env:
-          DART_API_KEY: \${{ secrets.DART_API_KEY }}
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
           SAVE_REPORT_ARCHIVES: 'true'
           MAX_REPORT_ARCHIVE_MB: '8'
         run: python src/update_agent.py
@@ -80,7 +80,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: \${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout dashboard
         uses: actions/checkout@v6
